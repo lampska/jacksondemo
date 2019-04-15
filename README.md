@@ -25,14 +25,16 @@ java -Dserver.address=127.0.0.1 -Dserver.port=4040 -jar target/jacksondemo-*-SNA
 ### Client and exploit scripts
 
 Quickstart with pre-built payload (when victim application is running):
+ * list entries
  * add an entry
  * list entries to confirm add worked
  * run exploit 
 
 ```
 cd attacker/
-./01-add.sh
-./02-list.sh
+./01-list.sh
+./02-add.sh
+./01-list.sh
 ./03-exploit.sh
 ```
 

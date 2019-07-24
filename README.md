@@ -1,6 +1,9 @@
 # Jacksondemo
 
-A minimal JSON API application with a vulnerable version of Jackson Databind library, plus attack scripts, for demonstrating remote code execution exploitation of untrusted deserialization.
+A minimal JSON API application with a vulnerable version of Jackson Databind library, plus attack scripts, for demonstrating remote code execution exploitation of untrusted deserialization. Default exploit uses org.apache.xalan.xsltc.trax.TemplatesImpl gadget class in Xalan 2.7.2.
+
+Jackson Databind gadget class blacklist is available here
+[https://github.com/FasterXML/jackson-databind/blob/master/src/main/java/com/fasterxml/jackson/databind/jsontype/impl/SubTypeValidator.java]
 
 ## Instructions
 
@@ -11,7 +14,7 @@ The setup has been tested on a 64-bit MacOS X and java 1.8.
 ### Clone repo
 
 ```
-git clone https://github.com/lampska/jacksonsploit
+git clone [https://github.com/lampska/jacksonsploit]
 ```
 
 ### Launch Victim application

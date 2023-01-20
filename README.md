@@ -9,7 +9,11 @@ Jackson Databind gadget class blacklist is available here
 
 Warning: this is an intentionally vulnerable application that, when run, allows remote users to run arbitrary code on the deployed machine. Use with caution.
 
-The setup has been tested on a 64-bit MacOS X and java 1.8.
+The setup has been tested on
+ * 64-bit MacOS X / java 1.8
+ * Ubuntu 20.04 / java 11
+
+and by running the attacks on localhost.
 
 ### Clone repo
 
@@ -22,12 +26,12 @@ git clone [https://github.com/lampska/jacksonsploit]
 ```
 cd victim
 mvn package
-java -Dserver.address=127.0.0.1 -Dserver.port=4040 -jar target/jacksondemo-*-SNAPSHOT.jar
+java -Dserver.address=127.0.0.1 -Dserver.port=8080 -jar target/jacksondemo-*-SNAPSHOT.jar
 ```
 
-### Client and exploit scripts
+### Attack victim with exploit scripts
 
-Quickstart with pre-built payload (when victim application is running):
+Suggested flow with pre-built payload (when victim application is running):
  * list entries
  * add an entry
  * list entries to confirm add worked
@@ -44,10 +48,10 @@ cd attacker/
 ### Create custom exploit payload
 
  * Customize the payload in the following file: attacker/exploit/Exploit.java
+ * run mvn package under attacker/
  * Create new exploitfile.json by running:
 
 ```
-cd attacker/
 ./04-create-exploitfile.sh
 ```
 

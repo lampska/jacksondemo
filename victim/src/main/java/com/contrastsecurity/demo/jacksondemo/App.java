@@ -31,19 +31,19 @@ public class App {
 		return "Please visit /accounts";
 	}
 
-  @RequestMapping(
-    value = "/accounts", 
-    method = RequestMethod.GET)
+  @GetMapping(
+    value = "/accounts"
+  )
   public ResponseEntity<String> getAccounts() throws JsonProcessingException {
     Collection<Account> res = accounts.list();
     log.info("get /accounts -> {}", res);
     return new ResponseEntity<String>(serializer.writeValueAsString(res),HttpStatus.OK);
   }
 
-  @RequestMapping(
+  @PostMapping(
     value = "/accounts", 
-    consumes = MediaType.APPLICATION_JSON_VALUE,
-    method = RequestMethod.POST)
+    consumes = MediaType.APPLICATION_JSON_VALUE
+  )
   public ResponseEntity<String> updateAccounts(@RequestBody String request) throws JsonProcessingException {
     log.info("post /accounts -> {}", request);
     Account account = deserialize(request);
